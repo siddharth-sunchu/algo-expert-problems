@@ -13,7 +13,7 @@
 // Space Complexity - O(1)
 const twoNumbersSum = (array, targetSum) => {
 
-    // Sort the array
+    // Sort the array so we can save up the memory or space Complexity
     array.sort((a, b) => a - b);
 
     const left = 0;
@@ -21,6 +21,7 @@ const twoNumbersSum = (array, targetSum) => {
 
     const result = [];
 
+    // Always compare two index (pointers) and move
     while (left < right) {
         const currentSum = array[left] + array[right];
         if(currentSum === targetSum) {
