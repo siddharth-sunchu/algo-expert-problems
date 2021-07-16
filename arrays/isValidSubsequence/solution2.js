@@ -10,7 +10,7 @@ sequence = [1, 6, -1, 10]
 Sample Output
 true
 */
-// Using a pop solution
+// Using a scond index counter
 // Input - Array and Sequence
 // Array is nondistinct values
 // Time Complexity O(N) and Space Complexity O(1)
@@ -21,22 +21,14 @@ function isValidSubsequence(array, sequence) {
         return false;
     }
 
-    // Reverse the array list and pop the sequence element once it matches the array element
-    for(let i = array.length - 1; i >= 0; i--) {
-        let currentElement = array[i];
-        if(sequence[sequence.length - 1] === currentElement) {
-            sequence.pop();
+    let secondIndex = 0;
+    array.forEach((value) => {
+        if(value === sequence[secondIndex]) {
+            secondIndex++;
         }
-    }
+    });
 
-    // Based on the sequence length we can determine it is a subsequence
-    if(sequence.length === 0) {
-        return true;
-    } else {
-        return false;
-    }
-
-
+    return (secondIndex === sequence.length) ? true : false;
 
 }
 
@@ -48,6 +40,6 @@ function isValidSubsequence(array, sequence) {
 
 // console.log(isValidSubsequence([1,1,1,1,1,1], [1,2]));
 
-console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
+// console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [1, 6, -1, 10]));
 // console.log(isValidSubsequence([5, 1, 22, 25, 6, -1, 8, 10], [5, 26, 22, 8]));
   
