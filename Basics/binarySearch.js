@@ -46,7 +46,7 @@ const recusriveFunction = (arr, value) => {
 console.log('recusriveFunction => ', recusriveFunction([1, 3, 5, 7, 8, 9], 5));
 console.log('recusriveFunction => ', recusriveFunction([1, 1, 1, 1, 2], 5));
 console.log('recusriveFunction => ', recusriveFunction([1, 3, 5, 7, 8, 9], 6));
-
+console.log('recusriveFunction => ', recusriveFunction([0, 1], 0));
 
 const iterativeApproach = (arr, value) => {
 
@@ -55,17 +55,16 @@ const iterativeApproach = (arr, value) => {
     // End Index
     let end = arr.length - 1;
 
-    // Run the loop
+    // Run the while loop until the base condition stasify
     while (start <= end) {
 
         // Get the middle index
         let middle = Math.floor((start+end)/2);
 
+        // Check if the value matches the middle element
         if(arr[middle] === value) {
             return true;
-        };
-
-        if(arr[middle] > value) {
+        } else if (arr[middle] < value) {
             start = middle + 1;
         } else {
             end = middle - 1;
@@ -80,4 +79,6 @@ const iterativeApproach = (arr, value) => {
 console.log('iterativeApproach =>', iterativeApproach([1, 3, 5, 7, 8, 9], 5));
 console.log('iterativeApproach => ', iterativeApproach([1, 1, 1, 1, 2], 5));
 console.log('iterativeApproach => ', iterativeApproach([1, 3, 5, 7, 8, 9], 6));
+console.log('iterativeApproach => ', iterativeApproach([0, 1], 1));
+console.log('iterativeApproach => ', iterativeApproach([1], 1));
 
