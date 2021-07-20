@@ -27,9 +27,9 @@ const twoNumbersSum = (array, targetSum) => {
         if(currentSum === targetSum) {
             result.push(array[left], array[right]);
             break;
-        } else if (currentSum < array[right]) {
+        } else if (currentSum < targetSum) {
             left++
-        } else if (currentSum > array[right]) {
+        } else if (currentSum > targetSum) {
             right--;
         }
     }
